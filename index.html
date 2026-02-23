@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Job Application Tracker</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+<div class="max-w-5xl mx-auto">
+
+<!-- dashboard Section -->
+<h1 class="text-2xl font-bold mb-4">Job Application Tracker</h1>
+
+<div class="grid grid-cols-3 gap-4 mb-8">
+  <div class="bg-white p-4 rounded shadow">
+    <p class="text-gray-500">Total</p>
+    <p id="totalCount" class="text-2xl font-bold">10</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <p class="text-gray-500">Interview</p>
+    <p id="interviewCount" class="text-2xl font-bold text-green-600">0</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <p class="text-gray-500">Rejected</p>
+    <p id="rejectedCount" class="text-2xl font-bold text-red-600">0</p>
+  </div>
+</div>
+
+<!-- AVAILABLE_HEADER -->
+<div class="flex justify-between items-center mb-2">
+  <h2 class="text-xl font-semibold">Available Jobs</h2>
+  <p id="tabCount" class="text-gray-500">10 jobs</p>
+</div>
+
+<div class="mb-6">
+  <button onclick="showTab('all')" class="tabBtn bg-blue-600 text-white px-4 py-1 rounded">All</button>
+  <button onclick="showTab('interview')" class="tabBtn bg-gray-200 px-4 py-1 rounded">Interview</button>
+  <button onclick="showTab('rejected')" class="tabBtn bg-gray-200 px-4 py-1 rounded">Rejected</button>
+</div>
+
+
+
+<!-- Job List -->
+<div id="jobContainer" class="space-y-4">
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all">
+<h3 class="font-bold text-blue-700">Mobile First Corp</h3>
+<p class="text-gray-600">React Native Developer</p>
+<p class="text-sm text-gray-500">Remote • Full-time • $130k-$175k</p>
+<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+<p class="mt-2 text-sm">Build cross-platform mobile apps used worldwide.</p>
+<div class="mt-3 space-x-2">
+<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+</div>
+</div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all">
+<h3 class="font-bold text-blue-700">WebFlow Agency</h3>
+<p class="text-gray-600">Web Designer</p>
+<p class="text-sm text-gray-500">Los Angeles • Part-time • $80k-$120k</p>
+<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+<p class="mt-2 text-sm">Create modern responsive client websites.</p>
+<div class="mt-3 space-x-2">
+<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+</div>
+</div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all">
+<h3 class="font-bold text-blue-700">DataViz Solutions</h3>
+<p class="text-gray-600">Data Visualization Specialist</p>
+<p class="text-sm text-gray-500">Boston • Full-time • $125k-$165k</p>
+<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+<p class="mt-2 text-sm">Turn complex data into meaningful dashboards.</p>
+<div class="mt-3 space-x-2">
+<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+</div>
+</div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">TechNova</h3><p>Frontend Developer</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">CloudSync</h3><p>Backend Engineer</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">PixelCraft</h3><p>UI Designer</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">RPI</h3><p>Instructor</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">SecureNet</h3><p>Security Analyst</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">AI Labs</h3><p>ML Engineer</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+
+<div class="job bg-white p-4 rounded shadow" data-status="all"><h3 class="font-bold text-blue-700">DevHub</h3><p>Full Stack Developer</p><p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p><div class="mt-3 space-x-2"><button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button><button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button></div></div>
+
+</div>
+
+<!-- Nothing Selected section -->
+<div id="emptyState" class="hidden text-center mt-10">
+
+<img src="./jobs.png"
+class="w-24 mx-auto mb-3 opacity-70">
+
+<h3 id="emptyTitle" class="text-lg font-semibold text-gray-700">
+No jobs selected
+</h3>
+
+<p id="emptySub" class="text-gray-500 text-sm">
+Jobs will appear here
+</p>
+
+</div>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
