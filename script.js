@@ -31,7 +31,7 @@ function setStatus(button,status){
 }
 
 
-/* MUST BE OUTSIDE */
+
 function updateView(){
 
   const cards=document.querySelectorAll(".job");
@@ -84,5 +84,4 @@ function updateView(){
   }
 }
 
-/* ✅ ONLY CALL ONCE HERE */
 updateView();
