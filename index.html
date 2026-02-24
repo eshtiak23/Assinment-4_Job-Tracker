@@ -3,199 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <title>Job Application Tracker</title>
- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
-<body class=" bg-gray-90 p-7">
+<body class="bg-gray-100 px-4 py-6 md:p-7 font-[Open_Sans]">
 
 <div class="max-w-5xl mx-auto">
 
 <!-- dashboard Section -->
-<h1 class="text-3xl  font-bold mb-4">JOB APPLICATION TRACKER</h1>
+<h1 class="text-2xl md:text-3xl font-bold mb-6">Job Application Tracker</h1>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-  <div class="bg-white p-4 rounded shadow">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8 text-center">
+
+  <div class="bg-white p-6 rounded-xl shadow-md">
     <p class="text-gray-500">Total</p>
-    <p id="totalCount" class="text-2xl font-bold">10</p>
+    <p id="totalCount" class="text-2xl font-bold">0</p>
   </div>
 
-  <div class="bg-white p-4 rounded shadow">
+  <div class="bg-white p-6 rounded-xl shadow-md">
     <p class="text-gray-500">Interview</p>
     <p id="interviewCount" class="text-2xl font-bold text-green-600">0</p>
   </div>
 
-  <div class="bg-white p-4 rounded shadow">
+  <div class="bg-white p-6 rounded-xl shadow-md">
     <p class="text-gray-500">Rejected</p>
     <p id="rejectedCount" class="text-2xl font-bold text-red-600">0</p>
   </div>
-</div>
 
-<div class="flex justify-between items-center mb-2">
-  <h2 class="text-xl font-semibold">Available Jobs</h2>
-  <p id="tabCount" class="text-gray-500">10 jobs</p>
-</div>
-
-<div class="mb-6">
-  <button onclick="showTab('all')" class="tabBtn bg-blue-600 text-white px-4 py-1 rounded">All</button>
-  <button onclick="showTab('interview')" class="tabBtn bg-gray-200 px-4 py-1 rounded">Interview</button>
-  <button onclick="showTab('rejected')" class="tabBtn bg-gray-200 px-4 py-1 rounded">Rejected</button>
 </div>
 
 
+<div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3 gap-2"> <h2 class="text-xl font-semibold">Available Jobs</h2>
+  <p id="tabCount" class="text-gray-500"> 0 jobs</p>
+</div>
 
-<!-- Job  List -->
-<div id="jobContainer" class="grid grid-cols-2 md:grid-cols-1 gap-4">
+<!-- Tabs SEction -->
+<div class="mb-6 grid grid-cols-3 gap-3">
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
+  <button onclick="showTab('all')"
+  class="tabBtn bg-blue-600 text-white py-2 rounded-lg w-full">
+  All
+  </button>
+
+  <button onclick="showTab('interview')"
+  class="tabBtn bg-gray-200 py-2 rounded-lg w-full">
+  Interview
+  </button>
+
+  <button onclick="showTab('rejected')"
+  class="tabBtn bg-gray-200 py-2 rounded-lg w-full">
+  Rejected
+  </button>
+
+</div>
+
+
+<div id="jobContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+  <!-- JOB CARD Section -->
+  <div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
     <h3 class="font-bold text-blue-700">Grameenphone Ltd.</h3>
     <p class="text-gray-600">Mobile App Developer</p>
     <p class="text-sm text-gray-500">Dhaka • Full-time • ৳80,000-৳1,50,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Develop apps that make your parents think you actually work.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">
+      NOT APPLIED
+    </p>
+
+    <p class="mt-2 text-sm">
+      Develop apps that make your parents think you actually work.
+    </p>
+
+    <div class="mt-3 flex flex-wrap gap-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">
+        INTERVIEW
+      </button>
+
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">
+        REJECTED
+      </button>
+
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
+        DELETE
+      </button>
     </div>
   </div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">bKash Ltd.</h3>
-    <p class="text-gray-600">UI/UX Designer</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Design buttons people click without reading instructions.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
-  </div>
+ <div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Evaly</h3>
+  <p class="text-gray-600">Logistics Coordinator</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳60,000-৳1,10,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Make packages appear at the right address… most of the time.</p>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Pathao Ltd.</h3>
-    <p class="text-gray-600">Backend Engineer</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳90,000-৳1,40,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Make sure your app doesn’t crash during rain.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Pran-RFL Group</h3>
-    <p class="text-gray-600">Quality Control Specialist</p>
-    <p class="text-sm text-gray-500">Chittagong • Full-time • ৳60,000-৳1,00,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Ensure snacks aren’t too crunchy… or too soft.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Chaldal</h3>
+  <p class="text-gray-600">Inventory Manager</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Keep track of groceries and pray nobody eats the stock early.</p>
+
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Shohoz Ltd.</h3>
-    <p class="text-gray-600">Operations Manager</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳1,00,000-৳1,50,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Coordinate tasks and prevent delivery bikes from getting lost.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Daraz</h3>
+  <p class="text-gray-600">Customer Experience Officer</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳55,000-৳95,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Answer all “Where’s my parcel?” calls with a smile 😊</p>
+
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Banglalink</h3>
-    <p class="text-gray-600">Customer Support Executive</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Help customers without losing your sanity.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">BRAC</h3>
+  <p class="text-gray-600">Project Coordinator</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Organize projects and convince people you actually have a plan.</p>
+
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Evaly</h3>
-    <p class="text-gray-600">Logistics Coordinator</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳60,000-৳1,10,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Make packages appear at the right address… most of the time.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">bKash Ltd.</h3>
+  <p class="text-gray-600">UI/UX Designer</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Design buttons people click without reading instructions.</p>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Chaldal</h3>
-    <p class="text-gray-600">Inventory Manager</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Keep track of groceries and pray nobody eats the stock early.</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Pathao Ltd.</h3>
+  <p class="text-gray-600">Backend Engineer</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳90,000-৳1,40,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Make sure your app doesn’t crash during rain.</p>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">Daraz</h3>
-    <p class="text-gray-600">Customer Experience Officer</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳55,000-৳95,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Answer all “Where’s my parcel?” calls with a smile 😊</p>
-    <div class="mt-3 space-x-2">
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Pran-RFL Group</h3>
+  <p class="text-gray-600">Quality Control Specialist</p>
+  <p class="text-sm text-gray-500">Chittagong • Full-time • ৳60,000-৳1,00,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Ensure snacks aren’t too crunchy… or too soft.</p>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
 
-  <div class="job bg-white p-4 rounded shadow" data-status="all">
-    <h3 class="font-bold text-blue-700">BRAC</h3>
-    <p class="text-gray-600">Project Coordinator</p>
-    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
-    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-    <p class="mt-2 text-sm">Organize projects and convince people you actually have a plan.</p>
-    <div class="mt-3 space-x-2">
-      
-      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-
-      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
-    </div>
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Shohoz Ltd.</h3>
+  <p class="text-gray-600">Operations Manager</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳1,00,000-৳1,50,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Coordinate tasks and prevent delivery bikes from getting lost.</p>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
   </div>
+</div>
+
+<div class="job bg-white p-5 rounded-xl shadow-md" data-status="all">
+  <h3 class="font-bold text-blue-700">Banglalink</h3>
+  <p class="text-gray-600">Customer Support Executive</p>
+  <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
+  <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+  <p class="mt-2 text-sm">Help customers without losing your sanity.</p>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+    <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+    <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+  </div>
+</div>
+
 
 
 </div>
 
-<!-- Nothing Selected section -->
+<!-- Empty State -->
 <div id="emptyState" class="hidden text-center mt-10">
 
-<img src="./jobs.png"class="w-25 mx-auto mb-3 opacity-73">
+<img src="./jobs.png" class="w-24 mx-auto mb-3 opacity-70">
 
 <h3 id="emptyTitle" class="text-lg font-semibold text-gray-700">
-No jobs selected </h3>
+No jobs selected
+</h3>
 
 <p id="emptySub" class="text-gray-500 text-sm">
-Jobs will appear here </p>
+Jobs will appear here
+</p>
 
 </div>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

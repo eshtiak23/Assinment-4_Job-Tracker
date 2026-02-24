@@ -3,24 +3,21 @@ let currentTab = "all";
 function showTab(tabName) {
   currentTab = tabName;
 
-  // Button color 
-  let allBtn = document.querySelectorAll(".tabBtn")[0];
-  let interviewBtn = document.querySelectorAll(".tabBtn")[1];
-  let rejectedBtn = document.querySelectorAll(".tabBtn")[2];
+  document.querySelectorAll(".tabBtn").forEach(btn=>{
+    btn.classList.remove("bg-blue-600","bg-green-600","bg-red-600","text-white");
+    btn.classList.add("bg-gray-200");
+  });
 
-  allBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
-  interviewBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
-  rejectedBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
+  let btns = document.querySelectorAll(".tabBtn");
 
-  
-  if (tabName == "all") {
-    allBtn.className = "tabBtn bg-blue-600 text-white px-4 py-1 rounded";
+  if(tabName==="all"){
+    btns[0].classList.add("bg-blue-600","text-white");
   }
-  if (tabName == "interview") {
-    interviewBtn.className = "tabBtn bg-green-600 text-white px-4 py-1 rounded";
+  if(tabName==="interview"){
+    btns[1].classList.add("bg-green-600","text-white");
   }
-  if (tabName == "rejected") {
-    rejectedBtn.className = "tabBtn bg-red-600 text-white px-4 py-1 rounded";
+  if(tabName==="rejected"){
+    btns[2].classList.add("bg-red-600","text-white");
   }
 
   updateView();
