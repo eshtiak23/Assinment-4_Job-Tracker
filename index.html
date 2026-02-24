@@ -46,179 +46,137 @@
 <!-- Job  List -->
 <div id="jobContainer" class="space-y-4">
 
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">Mobile First Corp</h3>
-<p class="text-gray-600">React Native Developer</p>
-<p class="text-sm text-gray-500">Remote • Full-time • $130k-$175k</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Build cross-platform mobile apps used worldwide.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Grameenphone Ltd.</h3>
+    <p class="text-gray-600">Mobile App Developer</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳80,000-৳1,50,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Develop apps that make your parents think you actually work.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">bKash Ltd.</h3>
+    <p class="text-gray-600">UI/UX Designer</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Design buttons people click without reading instructions.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-</div>
-</div>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Pathao Ltd.</h3>
+    <p class="text-gray-600">Backend Engineer</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳90,000-৳1,40,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Make sure your app doesn’t crash during rain.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">WebFlow Agency</h3>
-<p class="text-gray-600">Web Designer</p>
-<p class="text-sm text-gray-500">Los Angeles • Part-time • $80k-$120k</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Create modern responsive client websites.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Pran-RFL Group</h3>
+    <p class="text-gray-600">Quality Control Specialist</p>
+    <p class="text-sm text-gray-500">Chittagong • Full-time • ৳60,000-৳1,00,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Ensure snacks aren’t too crunchy… or too soft.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Shohoz Ltd.</h3>
+    <p class="text-gray-600">Operations Manager</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳1,00,000-৳1,50,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Coordinate tasks and prevent delivery bikes from getting lost.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-</div>
-</div>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Banglalink</h3>
+    <p class="text-gray-600">Customer Support Executive</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Help customers without losing your sanity.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">DataViz Solutions</h3>
-<p class="text-gray-600">Data Visualization Specialist</p>
-<p class="text-sm text-gray-500">Boston • Full-time • $125k-$165k</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Turn complex data into meaningful dashboards.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Evaly</h3>
+    <p class="text-gray-600">Logistics Coordinator</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳60,000-৳1,10,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Make packages appear at the right address… most of the time.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Chaldal</h3>
+    <p class="text-gray-600">Inventory Manager</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳50,000-৳90,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Keep track of groceries and pray nobody eats the stock early.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-</div>
-</div>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">Daraz</h3>
+    <p class="text-gray-600">Customer Experience Officer</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳55,000-৳95,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Answer all “Where’s my parcel?” calls with a smile 😊</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">TechNova</h3>
-<p>Frontend Developer</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Develop responsive frontend interfaces and optimize UI performance.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+  <div class="job bg-white p-4 rounded shadow" data-status="all">
+    <h3 class="font-bold text-blue-700">BRAC</h3>
+    <p class="text-gray-600">Project Coordinator</p>
+    <p class="text-sm text-gray-500">Dhaka • Full-time • ৳70,000-৳1,20,000</p>
+    <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
+    <p class="mt-2 text-sm">Organize projects and convince people you actually have a plan.</p>
+    <div class="mt-3 space-x-2">
+      <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+      <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
+      <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
+    </div>
+  </div>
 
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">CloudSync</h3>
-<p>Backend Engineer</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Build secure APIs and manage scalable cloud infrastructure.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">PixelCraft</h3>
-<p>UI Designer</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Design user-friendly interfaces and maintain visual consistency.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">RPI</h3>
-<p>Instructor</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Teach students and prepare course materials and assessments.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">SecureNet</h3>
-<p>Security Analyst</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Monitor systems, analyze threats, and improve security policies.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">AI Labs</h3>
-<p>ML Engineer</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Build and deploy machine learning models for production use.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
-<div class="job bg-white p-4 rounded shadow" data-status="all">
-<h3 class="font-bold text-blue-700">DevHub</h3>
-<p>Full Stack Developer</p>
-<p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
-<p class="mt-2 text-sm">Develop full-stack web applications and maintain databases.</p>
-<div class="mt-3 space-x-2">
-<button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
-<button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
-
-<button onclick="deleteJob(this)" 
-class="border border-gray-400 text-gray-600 px-3 py-1 rounded">
-DELETE
-</button>
-
-</div>
-</div>
-
+  
 </div>
 
 <!-- Nothing Selected section -->
