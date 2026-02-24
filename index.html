@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Job Application Tracker</title>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 p-6">
+<body class=" bg-gray-90 p-7">
 
 <div class="max-w-5xl mx-auto">
 
@@ -170,7 +171,9 @@
     <p class="text-xs bg-gray-200 inline-block px-2 py-1 mt-2 status">NOT APPLIED</p>
     <p class="mt-2 text-sm">Organize projects and convince people you actually have a plan.</p>
     <div class="mt-3 space-x-2">
+      
       <button onclick="setStatus(this,'interview')" class="border border-green-600 text-green-600 px-3 py-1 rounded">INTERVIEW</button>
+
       <button onclick="setStatus(this,'rejected')" class="border border-red-600 text-red-600 px-3 py-1 rounded">REJECTED</button>
       <button onclick="deleteJob(this)" class="border border-gray-400 text-gray-600 px-3 py-1 rounded">DELETE</button>
     </div>
@@ -182,20 +185,16 @@
 <!-- Nothing Selected section -->
 <div id="emptyState" class="hidden text-center mt-10">
 
-<img src="./jobs.png"
-class="w-24 mx-auto mb-3 opacity-70">
+<img src="./jobs.png"class="w-25 mx-auto mb-3 opacity-73">
 
 <h3 id="emptyTitle" class="text-lg font-semibold text-gray-700">
-No jobs selected
-</h3>
+No jobs selected </h3>
 
 <p id="emptySub" class="text-gray-500 text-sm">
-Jobs will appear here
-</p>
+Jobs will appear here </p>
 
 </div>
 </div>
-
 
 
 <script src="script.js"></script>
