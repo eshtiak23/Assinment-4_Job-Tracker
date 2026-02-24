@@ -38,10 +38,10 @@ function deleteJob(button){
 
   const index=jobs.findIndex(j=>j.el===card);
   if(index>-1){
-    jobs.splice(index,1);   // remove from array
+    jobs.splice(index,1);   
   }
 
-  card.remove();            // remove from screen
+  card.remove();           
 
   updateView();
 }
@@ -61,15 +61,18 @@ function updateView(){
       job.el.style.display="block";
       visible++;
     }else{
-      job.el.style.display="none" ;
+      job.el.style.display="none";
     }
 
   });
 
-  document.getElementById("interviewCount").textContent=interview;
-  document.getElementById("rejectedCount").textContent=rejected;
-  document.getElementById("tabCount").textContent=visible+" jobs";
+
+  document.getElementById("totalCount").textContent = jobs.length;
+  document.getElementById("interviewCount").textContent = interview;
+  document.getElementById("rejectedCount").textContent = rejected;
+
+  
+  document.getElementById("tabCount").textContent = visible + " jobs";
 
 }
-
 updateView();
