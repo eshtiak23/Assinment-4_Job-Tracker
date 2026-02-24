@@ -1,93 +1,113 @@
 let currentTab = "all";
 
-const jobs = Array.from(document.querySelectorAll(".job")).map((card, i) => ({
-  id: i,
-  el: card,
-  status: "all"
-}));
+function showTab(tabName) {
+  currentTab = tabName;
 
-const tabButtons = document.querySelectorAll(".tabBtn");
-const emptyState = document.getElementById("emptyState");
+  // Button color 
+  let allBtn = document.querySelectorAll(".tabBtn")[0];
+  let interviewBtn = document.querySelectorAll(".tabBtn")[1];
+  let rejectedBtn = document.querySelectorAll(".tabBtn")[2];
 
-function showTab(tab) {
-  currentTab = tab;
+  allBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
+  interviewBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
+  rejectedBtn.className = "tabBtn bg-gray-200 px-4 py-1 rounded text-gray-700";
 
-  // Tab Button color Change
-  tabButtons.forEach(btn => {
-    btn.classList.remove("bg-blue-600", "bg-green-600", "bg-red-600", "text-white");
-    btn.classList.add("bg-gray-200", "text-gray-700");
-  });
-
-  const activeBtn = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase() === tab);
-  if (activeBtn) {
-    if (tab === "all") activeBtn.classList.add("bg-blue-600", "text-white");
-    if (tab === "interview") activeBtn.classList.add("bg-green-600", "text-white");
-    if (tab === "rejected") activeBtn.classList.add("bg-red-600", "text-white");
-    activeBtn.classList.remove("bg-gray-200", "text-gray-700");
+  
+  if (tabName == "all") {
+    allBtn.className = "tabBtn bg-blue-600 text-white px-4 py-1 rounded";
+  }
+  if (tabName == "interview") {
+    interviewBtn.className = "tabBtn bg-green-600 text-white px-4 py-1 rounded";
+  }
+  if (tabName == "rejected") {
+    rejectedBtn.className = "tabBtn bg-red-600 text-white px-4 py-1 rounded";
   }
 
   updateView();
 }
 
-function setStatus(button, status) {
-  const card = button.closest(".job");
-  const job = jobs.find(j => j.el === card);
-  if (!job) return;
+function setStatus(button, newStatus) {
 
-  job.status = status;
+  let jobCard = button.parentElement.parentElement;
+  let statusBadge = jobCard.querySelector(".status");
 
-  const badge = card.querySelector(".status");
-
-  if (status === "interview") {
-    badge.textContent = "INTERVIEW";
-    badge.className = "status text-xs bg-green-100 text-green-700 inline-block px-2 py-1 mt-2";
-  } else if (status === "rejected") {
-    badge.textContent = "REJECTED";
-    badge.className = "status text-xs bg-red-100 text-red-700 inline-block px-2 py-1 mt-2";
+  if (newStatus == "interview") {
+    jobCard.setAttribute("data-status", "interview");
+    statusBadge.textContent = "INTERVIEW";
+    statusBadge.className = "status text-xs bg-green-100 text-green-700 inline-block px-2 py-1 mt-2";
+  } else if (newStatus == "rejected") {
+    jobCard.setAttribute("data-status", "rejected");
+    statusBadge.textContent = "REJECTED";
+    statusBadge.className = "status text-xs bg-red-100 text-red-700 inline-block px-2 py-1 mt-2";
   }
 
   updateView();
 }
 
 function deleteJob(button) {
-  const card = button.closest(".job");
-  const index = jobs.findIndex(j => j.el === card);
-  if (index > -1) {
-    jobs.splice(index, 1);
-  }
-  card.remove();
+  let jobCard = button.parentElement.parentElement;
+  jobCard.remove();
   updateView();
 }
 
 function updateView() {
-  let interview = 0;
-  let rejected = 0;
-  let visible = 0;
 
-  jobs.forEach(job => {
-    if (job.status === "interview") interview++;
-    if (job.status === "rejected") rejected++;
+  let allJobs = document.querySelectorAll(".job");
+  let totalCount = allJobs.length;
+  let interviewCount = 0;
+  let rejectedCount = 0;
+  let visibleCount = 0;
 
-    if (currentTab === "all" || job.status === currentTab) {
-      job.el.style.display = "block";
-      visible++;
-    } else {
-      job.el.style.display = "none";
+  for (let i = 0; i < allJobs.length; i++) {
+    let card = allJobs[i];
+    let status = card.getAttribute("data-status");
+
+
+    if (status == "interview") {
+      interviewCount++;
     }
-  });
+    if (status == "rejected") {
+      rejectedCount++;
+    }
 
-  document.getElementById("totalCount").textContent = jobs.length;
-  document.getElementById("interviewCount").textContent = interview;
-  document.getElementById("rejectedCount").textContent = rejected;
-  document.getElementById("tabCount").textContent = visible + " jobs";
+    
+    if (currentTab == "all") {
+      card.style.display = "block";
+      visibleCount++;
+    } else if (currentTab == status) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  }
 
-  // Noting Selected Section
-  if (visible === 0) {
-    emptyState.classList.remove("hidden");
+ 
+  document.getElementById("totalCount").textContent = totalCount;
+  document.getElementById("interviewCount").textContent = interviewCount;
+  document.getElementById("rejectedCount").textContent = rejectedCount;
+  document.getElementById("tabCount").textContent = visibleCount + " jobs";
+
+  // Nothing Selected Section
+  let emptyDiv = document.getElementById("emptyState");
+  let emptyTitle = document.getElementById("emptyTitle");
+  let emptySub = document.getElementById("emptySub");
+
+  if (visibleCount == 0) {
+    emptyDiv.classList.remove("hidden");
+    if (currentTab == "interview") {
+      emptyTitle.textContent = "No Interview Jobs Available";
+      emptySub.textContent = "Keep working hard and don't give up hope!😊";
+    } else if (currentTab == "rejected") {
+      emptyTitle.textContent = "No Rejected Jobs Available";
+      emptySub.textContent = "You haven't been rejected yet. Keep it up!👍";
+    } else {
+      emptyTitle.textContent = "No Jobs Available";
+      emptySub.textContent = "Your job list is currently empty.";
+    }
   } else {
-    emptyState.classList.add("hidden");
+    emptyDiv.classList.add("hidden");
   }
 }
 
-
-showTab("all");
+updateView();
